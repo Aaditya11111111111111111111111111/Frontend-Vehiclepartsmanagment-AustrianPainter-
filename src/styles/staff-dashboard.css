@@ -1,0 +1,353 @@
+/*
+  staff-dashboard.css
+  Dashboard layout styles — uses global.css design tokens throughout.
+  No hardcoded colours, no separate font imports.
+*/
+
+.staff-dashboard {
+  color: var(--text-primary);
+}
+
+.staff-dashboard .dashboard-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* ── Typography ─────────────────────────────────────────── */
+.staff-dashboard .page-header {
+  margin-bottom: 24px;
+}
+
+.staff-dashboard .page-title {
+  font-family: var(--font-sans);
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  color: var(--text-primary);
+}
+
+.staff-dashboard .page-subtitle {
+  font-size: 13px;
+  color: var(--text-secondary);
+  margin-top: 4px;
+}
+
+.staff-dashboard .card-title {
+  font-family: var(--font-sans);
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0;
+}
+
+.staff-dashboard .section-header {
+  margin-bottom: 16px;
+}
+
+/* ── Section rhythm ─────────────────────────────────────── */
+.staff-dashboard .dashboard-section {
+  margin-top: 28px;
+}
+
+.staff-dashboard .dashboard-section:first-of-type,
+.staff-dashboard .dashboard-section--stats {
+  margin-top: 0;
+}
+
+/* ── Stat grid ──────────────────────────────────────────── */
+.staff-dashboard .stat-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+}
+
+.staff-dashboard .stat-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px;
+  box-shadow: var(--shadow);
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+
+.staff-dashboard .stat-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+}
+
+.staff-dashboard .stat-card .label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.staff-dashboard .stat-card .value {
+  font-family: var(--font-sans);
+  font-size: 26px;
+  font-weight: 700;
+  margin-top: 8px;
+  line-height: 1.2;
+  color: var(--text-primary);
+}
+
+.staff-dashboard .stat-card .sub {
+  font-size: 12px;
+  color: var(--text-secondary);
+  margin-top: 4px;
+}
+
+/* Coloured stat variants — match global badge palette */
+.staff-dashboard .stat-card.green {
+  background: var(--green-dim);
+  border-color: rgba(34, 197, 94, 0.25);
+}
+.staff-dashboard .stat-card.green .value { color: var(--green); }
+
+.staff-dashboard .stat-card.red {
+  background: var(--red-dim);
+  border-color: rgba(239, 68, 68, 0.25);
+}
+.staff-dashboard .stat-card.red .value { color: var(--red); }
+
+.staff-dashboard .stat-card.blue {
+  background: var(--blue-dim);
+  border-color: rgba(59, 130, 246, 0.25);
+}
+.staff-dashboard .stat-card.blue .value { color: var(--blue); }
+
+.staff-dashboard .stat-card.accent {
+  background: var(--accent-dim);
+  border-color: rgba(249, 115, 22, 0.25);
+}
+.staff-dashboard .stat-card.accent .value { color: var(--accent); }
+
+/* ── Layout: primary + sidebar ──────────────────────────── */
+.staff-dashboard .dashboard-layout {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 20px;
+  align-items: start;
+}
+
+.staff-dashboard .dashboard-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.staff-dashboard .stack-tight {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* ── Cards ──────────────────────────────────────────────── */
+.staff-dashboard .card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 24px;
+  box-shadow: var(--shadow);
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+
+.staff-dashboard .card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+}
+
+.staff-dashboard .card-title--warn {
+  color: var(--accent);
+}
+
+.staff-dashboard .card-empty {
+  font-size: 13px;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+/* ── Tables ─────────────────────────────────────────────── */
+.staff-dashboard .table-wrap {
+  overflow-x: auto;
+}
+
+.staff-dashboard table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+.staff-dashboard thead {
+  border-bottom: 1px solid var(--border);
+}
+
+.staff-dashboard thead th {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: var(--text-muted);
+  font-weight: 600;
+  padding: 10px 14px;
+}
+
+.staff-dashboard tbody td {
+  padding: 12px 14px;
+  border-bottom: 1px solid var(--border);
+  vertical-align: middle;
+}
+
+.staff-dashboard tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.staff-dashboard tbody tr:hover td {
+  background: var(--surface2);
+}
+
+.staff-dashboard .table-empty {
+  text-align: center;
+  color: var(--text-muted);
+  padding: 32px;
+}
+
+.staff-dashboard .amount-cell {
+  font-weight: 600;
+  color: var(--green);
+}
+
+.staff-dashboard .card-footer-actions {
+  margin-top: 16px;
+  text-align: center;
+}
+
+/* ── Low stock list ─────────────────────────────────────── */
+.staff-dashboard .low-stock-list {
+  font-size: 13px;
+}
+
+.staff-dashboard .low-stock-row {
+  padding: 8px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.staff-dashboard .low-stock-row:last-of-type {
+  border-bottom: none;
+}
+
+.staff-dashboard .low-stock-name {
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.staff-dashboard .low-stock-meta {
+  color: var(--text-muted);
+  margin-top: 2px;
+  font-size: 12px;
+}
+
+.staff-dashboard .low-stock-more {
+  padding: 8px 0;
+  color: var(--text-muted);
+  text-align: center;
+  font-size: 12px;
+}
+
+/* ── Meta grid (profile details) ────────────────────────── */
+.staff-dashboard .meta-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 16px;
+  font-size: 13px;
+}
+
+.staff-dashboard .meta-label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 4px;
+}
+
+.staff-dashboard .meta-value {
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+/* ── Buttons — inherit global, override only shape ──────── */
+.staff-dashboard .btn {
+  font-family: var(--font-sans);
+  border-radius: var(--radius);
+}
+
+/* Primary uses the global orange accent */
+.staff-dashboard .btn-primary {
+  background: var(--accent);
+  color: #fff;
+}
+.staff-dashboard .btn-primary:hover {
+  background: var(--accent-hover);
+}
+
+/* Secondary matches global surface */
+.staff-dashboard .btn-secondary {
+  background: var(--surface2);
+  color: var(--text-primary);
+  border: 1px solid var(--border);
+}
+.staff-dashboard .btn-secondary:hover {
+  border-color: var(--text-secondary);
+}
+
+/* Ghost */
+.staff-dashboard .btn-ghost {
+  background: transparent;
+  color: var(--text-secondary);
+  border: 1px solid transparent;
+}
+.staff-dashboard .btn-ghost:hover {
+  background: var(--surface2);
+  color: var(--text-primary);
+}
+
+.staff-dashboard .btn-full-width {
+  width: 100%;
+  margin-top: 12px;
+  justify-content: center;
+}
+
+/* ── Utility ────────────────────────────────────────────── */
+.staff-dashboard .loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 200px;
+  color: var(--text-muted);
+}
+
+/* ── Responsive ─────────────────────────────────────────── */
+@media (max-width: 1024px) {
+  .staff-dashboard .dashboard-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .staff-dashboard .page-title {
+    font-size: 22px;
+  }
+  .staff-dashboard .stat-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+}
+
+@media (max-width: 520px) {
+  .staff-dashboard .stat-grid {
+    grid-template-columns: 1fr;
+  }
+}
